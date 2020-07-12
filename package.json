@@ -1,0 +1,8 @@
+{
+  "name": "breadknife",
+  "version": "1.0.0",
+  "description": "Simple A/B Testing Library",
+  "main": "index.js",
+  "author": "Sean Verhaagen",
+  "license": "MIT"
+}
