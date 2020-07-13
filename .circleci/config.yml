@@ -18,7 +18,7 @@ jobs:
       - checkout
 
       - codecov/upload:
-          file: "./coverage"
+          file: "/coverage/"
 
       - restore_cache:
           keys:
