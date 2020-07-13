@@ -1,11 +1,8 @@
 # 🍞 Breadknife.js 🍞
 
 ![npm](https://img.shields.io/npm/v/breadknife)
-
 [![Codecov Coverage](https://img.shields.io/codecov/c/github/Dreii/Breadknife.js/master.svg?style=flat-square)](https://codecov.io/gh/Dreii/Breadknife.js/)
-
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dreii/breadknife.js)
-
+![CircleCI](https://img.shields.io/circleci/build/github/Dreii/breadknife.js)
 ![npm](https://img.shields.io/npm/dm/breadknife)
   
 
