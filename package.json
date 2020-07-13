@@ -1,6 +1,6 @@
 {
   "name": "breadknife",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Simple A/B Testing Library",
   "main": "lib/Breadknife.js",
   "types": "lib/types.ts",
