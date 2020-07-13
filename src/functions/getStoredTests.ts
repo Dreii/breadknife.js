@@ -4,11 +4,10 @@ const getStoredTests = (): Test[] => {
   let parsed = []
   try {
     parsed = JSON.parse(rawData)
-  } catch (err) {
-    console.warn('Invalid test storage')
-  }
+  } catch (err) { }
 
   return parsed
 }
 
 export default getStoredTests
+q
