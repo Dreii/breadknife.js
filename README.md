@@ -60,7 +60,7 @@ you can use this to conditionally render code:
 ```
 
 ### Disabling a test
-Breadknife stores all tests on the clients local storage so that slices can persist between sessions, if you need to temporarily disable a test without removing it you can add `disabled: true` to the config for that test. Disabled tests always return `'CONTROL'`
+Breadknife stores all tests on the clients local storage so that slices can persist between sessions, if you need to temporarily disable a test without removing it you can add `disabled: true` to the config for that test. Disabled tests always return `Breadknife.states.CONTROL`
 
 ```js
 const  exampleConfig  = [
