@@ -39,9 +39,4 @@ workflows:
   version: 2
   deploy:
     jobs:
-      - deploy:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+      - deploy

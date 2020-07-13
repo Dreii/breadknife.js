@@ -1,6 +1,12 @@
 # 🍞 Breadknife.js 🍞
 
+![npm](https://img.shields.io/npm/v/breadknife)
+
 [![Codecov Coverage](https://img.shields.io/codecov/c/github/Dreii/Breadknife.js/master.svg?style=flat-square)](https://codecov.io/gh/Dreii/Breadknife.js/)
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dreii/breadknife.js)
+
+![npm](https://img.shields.io/npm/dm/breadknife)
   
 
 Dead Simple A/B Testing so you can focus on getting that bread 🍞.
