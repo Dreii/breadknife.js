@@ -6,6 +6,7 @@ const getStoredTests = (): Test[] => {
     parsed = JSON.parse(rawData)
     // tslint:disable-next-line
   } catch (err) {
+    // tslint:disable-next-line
     console.warn('Invalid test storage')
   }
 
