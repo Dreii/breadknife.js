@@ -1,6 +1,6 @@
 {
   "name": "breadknife",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple A/B Testing Library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
+    "codecov": "^3.7.0",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.1",
