@@ -16,9 +16,8 @@ class Breadknife {
     }
   }
 
-  init(configuration: any) {
-    this.tests = getStoredTests() || []
-
+  init(configuration: Test[]) {
+    this.tests = getStoredTests()
     this.tests = this.tests.filter(oldTest => !!configuration.find((newTest: Test) => oldTest.id === newTest.id))
 
     const testIds: string[] = []
@@ -30,7 +29,7 @@ class Breadknife {
       if (config.disabled && exsistingTest) exsistingTest.slice = this.states.CONTROL
       if (exsistingTest) return
 
-      checkIfTestSlicesEqual100.bind(config)
+      checkIfTestSlicesEqual100(config)
       const slice = getTestSlice(config, this.states.CONTROL)
       this.tests.push({ ...config, slice })
     })

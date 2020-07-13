@@ -10,7 +10,7 @@ export interface Test {
   id: string
   name: string
   split: Split
-  disabled: boolean
+  disabled?: boolean
   slice?: string
 }
 
