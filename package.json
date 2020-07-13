@@ -2,8 +2,48 @@
   "name": "breadknife",
   "version": "1.0.0",
   "description": "Simple A/B Testing Library",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Sean Verhaagen",
   "license": "MIT",
-  "repository": "https://github.com/Dreii/breadknife.js"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dreii/breadknife.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Dreii/breadknife.js/issues"
+  },
+  "keywords": [
+    "A/B",
+    "Test",
+    "Lean",
+    "Bread",
+    "Knife",
+    "Slice"
+  ],
+  "files": [
+    "lib /**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.1",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {}
 }
