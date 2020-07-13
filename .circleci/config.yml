@@ -35,6 +35,7 @@ jobs:
           root: ~/repo
           paths:
             - lib
+            - package.json
   deploy:
     <<: *defaults
     steps:
