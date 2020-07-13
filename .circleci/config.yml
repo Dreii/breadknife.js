@@ -33,9 +33,7 @@ jobs:
 
       - persist_to_workspace:
           root: ~/repo
-          paths:
-            - lib
-            - package.json
+          paths: ["*"]
   deploy:
     <<: *defaults
     steps:
