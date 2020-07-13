@@ -3,7 +3,7 @@
   "version": "1.1.7",
   "description": "Simple A/B Testing Library",
   "main": "lib/breadknife.min.js",
-  "types": "lib/types.ts",
+  "types": "lib/Breadknife.d.ts",
   "author": "Sean Verhaagen",
   "license": "MIT",
   "repository": {
@@ -22,7 +22,7 @@
     "Slice"
   ],
   "files": [
-    "lib /**/*"
+    "lib/breadknife.min.js"
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
