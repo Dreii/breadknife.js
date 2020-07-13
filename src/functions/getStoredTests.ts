@@ -5,7 +5,7 @@ const getStoredTests = (): Test[] => {
   try {
     parsed = JSON.parse(rawData)
   } catch (err) {
-    console.log('Invalid test storage')
+    console.warn('Invalid test storage')
   }
 
   return parsed
