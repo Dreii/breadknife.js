@@ -35,7 +35,7 @@ Once your config is set you have to initialize the tests.
 `Breadknife.init(exampleConfig)`
 
 Then you can check the slice of a test anywhere else in your code.
-`Breadknife.getTestSlice('EXAMPLE_TEST')`
+`Breadknife.getSlice('EXAMPLE_TEST')`
 this will return a string matching one of the constants in `Breadknife.states` 
 `'CONTROL'`
 `'TEST'`
@@ -46,7 +46,7 @@ you can use this to conditionally render code:
 
 ```js
 	let text
-	if(Breadknife.getTestSlice('EXAMPLE_TEST') === Breadknife.states.TEST){
+	if(Breadknife.getSlice('EXAMPLE_TEST') === Breadknife.states.TEST){
 		text = "I'm test text!"
 	} else {
 		text = "I'm control text!"
@@ -72,7 +72,7 @@ const  exampleConfig  = [
 ```
 
 ### Removing a test
-If a test is not longer necessary it can simply be removed from the config and it wont be saved on the next `Breadknife.init()` call, if a test that does not exist is provided to the `Breadknife.getTestSlice()` function, it will always return `Breadknife.states.CONTROL`
+If a test is not longer necessary it can simply be removed from the config and it wont be saved on the next `Breadknife.init()` call, if a test that does not exist is provided to the `Breadknife.getSlice()` function, it will always return `Breadknife.states.CONTROL`
 
 
 ## Config
@@ -137,3 +137,12 @@ const  exampleConfig  = [
 	}
 ]
 ```
+
+### Forcing a test version
+
+If you need to force a test into a certain slice you can use the `Breadknife.forceTestSlice(id, state)` function.
+
+### Listing all tests
+
+If you need to return a list of all tests with their slices you can use
+`Breadknife.getTests()`

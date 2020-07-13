@@ -5,6 +5,7 @@ class Breadknife {
   tests: Test[]
   states: States
 
+
   constructor() {
     this.tests = []
 
@@ -45,6 +46,8 @@ class Breadknife {
     const foundTest = this.tests.find(testSearch => testSearch.id === id)
     return (foundTest && foundTest.slice) || this.states.CONTROL
   }
+
+  getSlice(id: string) { return this.getTestSlice(id) }
 
   forceTestSlice(id: string, state: string) {
     const testIndex: number = this.tests.findIndex(testSearch => testSearch.id === id)
