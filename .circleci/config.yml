@@ -2,7 +2,9 @@
 #
 # Check {{ '/2.0/language-javascript/' | docs_url }} for more details
 #
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.1.0
 
 defaults: &defaults
   working_directory: ~/repo
@@ -10,10 +12,13 @@ defaults: &defaults
     - image: circleci/node:12.16.1
 
 jobs:
-  test:
+  deploy:
     <<: *defaults
     steps:
       - checkout
+
+      - codecov/upload:
+          file: { { coverage_report_filepath } }
 
       - restore_cache:
           keys:
@@ -22,23 +27,7 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
-      - run:
-          name: Run tests
-          command: npm test
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths: ["*"]
-  deploy:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
@@ -50,13 +39,7 @@ workflows:
   version: 2
   test-deploy:
     jobs:
-      - test:
-          filters:
-            tags:
-              only: /^v.*/
       - deploy:
-          requires:
-            - test
           filters:
             tags:
               only: /^v.*/
