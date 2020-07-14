@@ -1,7 +1,6 @@
 # 🍞 Breadknife.js 🍞
 
 ![npm](https://img.shields.io/npm/v/breadknife)
-![npm bundle size](https://img.shields.io/bundlephobia/min/breadknife)
 ![Codecov](https://img.shields.io/codecov/c/github/dreii/breadknife.js)
 ![CircleCI](https://img.shields.io/circleci/build/github/Dreii/breadknife.js)
 ![npm](https://img.shields.io/npm/dm/breadknife)

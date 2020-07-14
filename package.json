@@ -22,7 +22,7 @@
     "Slice"
   ],
   "files": [
-    "lib/breadknife.min.js"
+    "lib /**/*"
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
