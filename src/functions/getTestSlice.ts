@@ -1,5 +1,5 @@
 import { Test } from '../types'
-import { isFloat } from '../functions'
+import isFloat from './isFloat'
 const getTestSlice = (config: Test, controlValue: string): string => {
   const splitKeys = Object.keys(config.split)
 
