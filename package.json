@@ -1,6 +1,6 @@
 {
   "name": "breadknife",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "Simple A/B Testing Library",
   "main": "lib/Breadknife.js",
   "types": "lib/Breadknife.d.ts",
@@ -22,7 +22,7 @@
     "Slice"
   ],
   "files": [
-    "lib /**/*"
+    "lib/**/*"
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
