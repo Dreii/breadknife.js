@@ -20,9 +20,6 @@
     "Knife",
     "Slice"
   ],
-  "files": [
-    "lib/**/*"
-  ],
   "scripts": {
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"**/*.js\"",
