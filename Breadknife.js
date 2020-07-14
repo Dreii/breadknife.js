@@ -3,10 +3,10 @@ const { checkIfTestSlicesEqual100, getTestSlice, setStoredTests, getStoredTests 
 class Breadknife {
   static init(configuration) {
     this.tests = getStoredTests()
-    this.tests = this.tests.filter(oldTest => !!configuration.find((newTest) => oldTest.id === newTest.id))
+    this.tests = this.tests.filter(oldTest => !!configuration.find(newTest => oldTest.id === newTest.id))
 
     const testIds = []
-    configuration.forEach((config) => {
+    configuration.forEach(config => {
       if (!config.id || testIds.find(otherId => otherId === config.id))
         throw new Error('Configuration must have unique ID')
       testIds.push(config.id)

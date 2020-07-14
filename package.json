@@ -1,6 +1,6 @@
 {
   "name": "breadknife",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "Simple A/B Testing Library",
   "main": "Breadknife.js",
   "author": "Sean Verhaagen",
@@ -27,7 +27,7 @@
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"**/*.js\"",
     "prepublishOnly": "npm test",
-    "version": "npm run format && git add -A src",
+    "version": "npm run format && git add -A",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {

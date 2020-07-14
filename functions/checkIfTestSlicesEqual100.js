@@ -1,6 +1,6 @@
 const isFloat = require('./isFloat')
 
-module.exports = checkIfTestSlicesEqual100 = (config) => {
+module.exports = checkIfTestSlicesEqual100 = config => {
   const versions = Object.keys(config.split)
 
   let totalPercent = 0

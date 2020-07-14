@@ -48,7 +48,7 @@ test('Breadknife removes tests that are no longer in the configuration', () => {
   expect(tests.length).toEqual(0)
 })
 
-test('Force Test works', () => { })
+test('Force Test works', () => {})
 
 test('Breadknife loads a valid configuration file with two tests', () => {
   Breadknife.init([])
@@ -257,12 +257,7 @@ test('Four Way Test results in Control, Test, Test B, or Text C slice.', () => {
 
   Breadknife.init(testConfig)
   const result = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect([
-    Breadknife.CONTROL,
-    Breadknife.TEST,
-    Breadknife.TEST_B,
-    Breadknife.TEST_C,
-  ]).toContain(result)
+  expect([Breadknife.CONTROL, Breadknife.TEST, Breadknife.TEST_B, Breadknife.TEST_C]).toContain(result)
 })
 
 test('Forcing a test results in the test changing to the correct slice.', () => {

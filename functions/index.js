@@ -5,9 +5,9 @@ const getTestSlice = require('./getTestSlice')
 const isFloat = require('./isFloat')
 
 module.exports = {
-    checkIfTestSlicesEqual100,
-    getStoredTests,
-    setStoredTests,
-    getTestSlice,
-    isFloat,
+  checkIfTestSlicesEqual100,
+  getStoredTests,
+  setStoredTests,
+  getTestSlice,
+  isFloat,
 }
