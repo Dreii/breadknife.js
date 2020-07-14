@@ -1,6 +1,6 @@
-import { Test } from '../types'
-import isFloat from './isFloat'
-const getTestSlice = (config: Test, controlValue: string): string => {
+const isFloat = require('./isFloat')
+
+module.exports = getTestSlice = (config, controlValue) => {
   const splitKeys = Object.keys(config.split)
 
   if (config.disabled) {
@@ -31,5 +31,3 @@ const getTestSlice = (config: Test, controlValue: string): string => {
     return selectedSlice ? selectedSlice.value : controlValue
   }
 }
-
-export default getTestSlice

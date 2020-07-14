@@ -49,17 +49,15 @@ you can use this to conditionally render code:
 
 ```js
 	let text
-	if(Breadknife.getSlice('EXAMPLE_TEST') === Breadknife.states.TEST){
+	if(Breadknife.getSlice('EXAMPLE_TEST') === Breadknife.TEST){
 		text = "I'm test text!"
 	} else {
 		text = "I'm control text!"
 	}
-
-	console.log(text)
 ```
 
 ### Disabling a test
-Breadknife stores all tests on the clients local storage so that slices can persist between sessions, if you need to temporarily disable a test without removing it you can add `disabled: true` to the config for that test. Disabled tests always return `Breadknife.states.CONTROL`
+Breadknife stores all tests on the clients local storage so that slices can persist between sessions, if you need to temporarily disable a test without removing it you can add `disabled: true` to the config for that test. Disabled tests always return `Breadknife.CONTROL`
 
 ```js
 const  exampleConfig  = [
@@ -75,7 +73,7 @@ const  exampleConfig  = [
 ```
 
 ### Removing a test
-If a test is not longer necessary it can simply be removed from the config and it wont be saved on the next `Breadknife.init()` call, if a test that does not exist is provided to the `Breadknife.getSlice()` function, it will always return `Breadknife.states.CONTROL`
+If a test is not longer necessary it can simply be removed from the config and it wont be saved on the next `Breadknife.init()` call, if a test that does not exist is provided to the `Breadknife.getSlice()` function, it will always return `Breadknife.CONTROL`
 
 
 ## Config

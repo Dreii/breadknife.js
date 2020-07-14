@@ -1,6 +1,5 @@
-import { Test } from '../types'
-const getStoredTests = (): Test[] => {
-  const rawData: string = window.localStorage.getItem('_BREADKNIFE_TESTS') || '[]'
+module.exports = getStoredTests = () => {
+  const rawData = window.localStorage.getItem('_BREADKNIFE_TESTS') || '[]'
   let parsed = []
   try {
     parsed = JSON.parse(rawData)
@@ -12,5 +11,3 @@ const getStoredTests = (): Test[] => {
 
   return parsed
 }
-
-export default getStoredTests

@@ -1,5 +1,6 @@
-import Breadknife, { HALF_AND_HALF, THREE_WAY, FOUR_WAY } from '../Breadknife'
-import { getTestSlice } from '../functions'
+const Breadknife = require('../Breadknife')
+const { HALF_AND_HALF, THREE_WAY, FOUR_WAY } = Breadknife
+const { getTestSlice } = require('../functions')
 
 test('Breadknife exports successfully', () => {
   expect(Breadknife).toEqual(expect.anything())
@@ -47,7 +48,7 @@ test('Breadknife removes tests that are no longer in the configuration', () => {
   expect(tests.length).toEqual(0)
 })
 
-test('Force Test works', () => {})
+test('Force Test works', () => { })
 
 test('Breadknife loads a valid configuration file with two tests', () => {
   Breadknife.init([])
@@ -175,7 +176,7 @@ test('Initialized tests should save to local storage', () => {
   expect(firstTest.id).toBe('EXAMPLE_TEST')
   expect(firstTest.name).toBe('Example Test')
   expect(firstTest.split).toStrictEqual(HALF_AND_HALF)
-  expect([Breadknife.states.CONTROL, Breadknife.states.TEST]).toContain(firstTest.slice)
+  expect([Breadknife.CONTROL, Breadknife.TEST]).toContain(firstTest.slice)
 })
 
 test('invalid local storage should fail silently and read as empty.', () => {
@@ -208,7 +209,23 @@ test('Half and Half Test results in Control Or Test slice.', () => {
 
   Breadknife.init(testConfig)
   const result = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect([Breadknife.states.CONTROL, Breadknife.states.TEST]).toContain(result)
+  expect([Breadknife.CONTROL, Breadknife.TEST]).toContain(result)
+})
+
+test('getSlice alias of getTestSlice works', () => {
+  Breadknife.init([])
+
+  const testConfig = [
+    {
+      id: 'EXAMPLE_TEST',
+      name: 'Example Test',
+      split: HALF_AND_HALF,
+    },
+  ]
+
+  Breadknife.init(testConfig)
+  const result = Breadknife.getSlice('EXAMPLE_TEST')
+  expect([Breadknife.CONTROL, Breadknife.TEST]).toContain(result)
 })
 
 test('Three Way Test results in Control, Test or Test B slice.', () => {
@@ -224,7 +241,7 @@ test('Three Way Test results in Control, Test or Test B slice.', () => {
 
   Breadknife.init(testConfig)
   const result = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect([Breadknife.states.CONTROL, Breadknife.states.TEST, Breadknife.states.TEST_B]).toContain(result)
+  expect([Breadknife.CONTROL, Breadknife.TEST, Breadknife.TEST_B]).toContain(result)
 })
 
 test('Four Way Test results in Control, Test, Test B, or Text C slice.', () => {
@@ -241,10 +258,10 @@ test('Four Way Test results in Control, Test, Test B, or Text C slice.', () => {
   Breadknife.init(testConfig)
   const result = Breadknife.getTestSlice('EXAMPLE_TEST')
   expect([
-    Breadknife.states.CONTROL,
-    Breadknife.states.TEST,
-    Breadknife.states.TEST_B,
-    Breadknife.states.TEST_C,
+    Breadknife.CONTROL,
+    Breadknife.TEST,
+    Breadknife.TEST_B,
+    Breadknife.TEST_C,
   ]).toContain(result)
 })
 
@@ -261,24 +278,24 @@ test('Forcing a test results in the test changing to the correct slice.', () => 
 
   Breadknife.init(testConfig)
 
-  Breadknife.forceTestSlice('EXAMPLE_TEST', Breadknife.states.CONTROL)
+  Breadknife.forceTestSlice('EXAMPLE_TEST', Breadknife.CONTROL)
   const result = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect(result).toBe(Breadknife.states.CONTROL)
+  expect(result).toBe(Breadknife.CONTROL)
 
-  Breadknife.forceTestSlice('EXAMPLE_TEST', Breadknife.states.TEST)
+  Breadknife.forceTestSlice('EXAMPLE_TEST', Breadknife.TEST)
   const result2 = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect(result2).toBe(Breadknife.states.TEST)
+  expect(result2).toBe(Breadknife.TEST)
 })
 
 test('Forcing non exsisting test results in an error', () => {
   Breadknife.init([])
-  expect(() => Breadknife.forceTestSlice('EXAMPLE_TEST', Breadknife.states.CONTROL)).toThrow()
+  expect(() => Breadknife.forceTestSlice('EXAMPLE_TEST', Breadknife.CONTROL)).toThrow()
 })
 
 test('Asking for a slice state from a test not in the list, returns Control state', () => {
   Breadknife.init([])
   const slice = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect(slice).toBe(Breadknife.states.CONTROL)
+  expect(slice).toBe(Breadknife.CONTROL)
 })
 
 test('Disabling a test results in its state becoming control', () => {
@@ -295,7 +312,7 @@ test('Disabling a test results in its state becoming control', () => {
 
   Breadknife.init(testConfig)
   const slice = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect(slice).toBe(Breadknife.states.CONTROL)
+  expect(slice).toBe(Breadknife.CONTROL)
 })
 
 test('Disabling a previously stored test results in its state becoming control', () => {
@@ -323,7 +340,7 @@ test('Disabling a previously stored test results in its state becoming control',
   Breadknife.init(testConfig2)
 
   const slice = Breadknife.getTestSlice('EXAMPLE_TEST')
-  expect(slice).toBe(Breadknife.states.CONTROL)
+  expect(slice).toBe(Breadknife.CONTROL)
 })
 
 test('Giving test a split with a non float value results in an error', () => {
@@ -342,5 +359,5 @@ test('Giving test a split with a non float value results in an error', () => {
 
   expect(() => Breadknife.init(testConfig)).toThrow()
 
-  expect(() => getTestSlice(testConfig[0], Breadknife.states.CONTROL)).toThrow()
+  expect(() => getTestSlice(testConfig[0], Breadknife.CONTROL)).toThrow()
 })

@@ -2,8 +2,7 @@
   "name": "breadknife",
   "version": "1.1.14",
   "description": "Simple A/B Testing Library",
-  "main": "lib/Breadknife.js",
-  "types": "lib/Breadknife.d.ts",
+  "main": "Breadknife.js",
   "author": "Sean Verhaagen",
   "license": "MIT",
   "repository": {
@@ -26,11 +25,8 @@
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc",
-    "watch": "tsc --watch",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",

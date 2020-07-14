@@ -1,6 +1,6 @@
-import { Test } from '../types'
-import { isFloat } from './'
-const checkIfTestSlicesEqual100 = (config: Test) => {
+const isFloat = require('./isFloat')
+
+module.exports = checkIfTestSlicesEqual100 = (config) => {
   const versions = Object.keys(config.split)
 
   let totalPercent = 0
@@ -14,5 +14,3 @@ const checkIfTestSlicesEqual100 = (config: Test) => {
   if (totalPercent < 0.99 || totalPercent > 1)
     throw new Error('Test Split Total is not 100% please ensure all slices added together equals 1')
 }
-
-export default checkIfTestSlicesEqual100
